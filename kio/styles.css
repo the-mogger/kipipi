@@ -1,0 +1,152 @@
+
+/* General body styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1b1b1b, #222831, #393e46);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #ececec;
+}
+
+/* Highway container */
+.highway-container {
+    text-align: center;
+}
+
+/* Highway styling */
+.highway {
+    position: relative;
+    width: 100vw;
+    height: 400px;
+    background: linear-gradient(to right, #2f2f2f, #3c3c3c, #2f2f2f);
+    border-top: 5px solid #444;
+    border-bottom: 5px solid #444;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Streetlights */
+.streetlight {
+    position: relative;
+    width: 12px;
+    height: 120px;
+    background-color: #555;
+    border-radius: 5px;
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.streetlight::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -20px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #222, #111);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Glowing effect */
+.streetlight.glow {
+    background-color: #ffdd33;
+    box-shadow: 0 0 25px 15px rgba(255, 221, 51, 0.9);
+}
+
+.streetlight.glow::after {
+    background: radial-gradient(circle, #ffdd33, rgba(255, 221, 51, 0.5));
+}
+
+/* Car styling */
+.car {
+    position: absolute;
+    bottom: 10px;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff8c42, #ff4e50);
+    border-radius: 10px;
+    left: -80px;
+    transition: left 0.05s linear;
+    box-shadow: -10px 0 30px rgba(255, 72, 50, 0.7);
+}
+
+/* Car trail animation */
+.car::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: rgba(255, 87, 51, 0.15);
+    border-radius: 50%;
+    top: 5px;
+    left: -40px;
+    animation: trail 0.5s infinite;
+}
+
+@keyframes trail {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Controls */
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 5px;
+    background: linear-gradient(45deg, #333, #666);
+    color: #ececec;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #777, #999);
+    transform: scale(1.07);
+}
+
+button:disabled {
+    background: #888;
+    cursor: not-allowed;
+}
+.startBtn {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 5px;
+    background: linear-gradient(45deg, #333, #555);
+    color: #fff;
+    border: 2px solid #47f99a; /* Use a slightly thicker border */
+    border-radius: 5px; /* Adjust radius for a smoother look */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition properties */
+    color-interpolation-filters: linearRGB;
+}
+
+/* Hover effect */
+.startBtn:hover {
+    background: linear-gradient(45deg, #47f99a, #333); /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 0 15px rgba(71, 249, 154, 0.8); /* Add a glowing shadow effect */
+}
+
+/* Disabled state */
+.startBtn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7; /* Reduce opacity for disabled buttons */
+}
